@@ -6,7 +6,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-_(bof27i^dxxkmz377j_sc46ljo$%c-l7rkb^1janx%^-f#-gz'
 DEBUG = True
-ALLOWED_HOSTS = ['your-backend.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['vobinfo-backend.onrender.com', 'localhost', '127.0.0.1']
+
 
 # Foydalanuvchi model
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -165,5 +166,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 CORS_ALLOW_ALL_ORIGINS = True
