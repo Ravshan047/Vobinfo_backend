@@ -91,6 +91,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.staticfiles.middleware.StaticFilesMiddleware',
 ]
 
 ROOT_URLCONF = 'vobkentnew.urls'
@@ -114,7 +115,7 @@ WSGI_APPLICATION = 'vobkentnew.wsgi.application'
 
 # Ma'lumotlar bazasi
 DATABASES = {
-'default': dj_database_url.config(conn_max_age=600)
+    'default': dj_database_url.config(conn_max_age=600)
 } if 'DATABASE_URL' in os.environ else {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -149,9 +150,13 @@ import dj_database_url
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+DEBUG = False
+
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Your Project API',
