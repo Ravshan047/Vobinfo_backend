@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-_(bof27i^dxxkmz377j_sc46ljo$%c-l7rkb^1janx%^-f#-gz'
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['your-backend.onrender.com', 'localhost', '127.0.0.1']
 
 # Foydalanuvchi model
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -88,6 +88,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'vobkentnew.urls'
@@ -111,6 +113,8 @@ WSGI_APPLICATION = 'vobkentnew.wsgi.application'
 
 # Ma'lumotlar bazasi
 DATABASES = {
+'default': dj_database_url.config(conn_max_age=600)
+} if 'DATABASE_URL' in os.environ else {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -143,7 +147,7 @@ USE_TZ = True
 import dj_database_url
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -162,3 +166,4 @@ CORS_ALLOWED_ORIGINS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CORS_ALLOW_ALL_ORIGINS = True

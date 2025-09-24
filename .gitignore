@@ -225,3 +225,15 @@ staticfiles/
 .env
 
 # End of https://www.toptal.com/developers/gitignore/api/django,react,venv,visualstudiocode
+
+
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+staticfiles/
+*.sqlite3
+.DS_Store
