@@ -144,10 +144,11 @@ USE_TZ = True
 # Statik va media fayllar
 import dj_database_url
 
+# Statik fayllar
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Media fayllar
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
